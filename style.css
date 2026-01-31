@@ -11,7 +11,7 @@ body {
   min-height: 100vh;
   background-color: white;
   font-family: "Quicksand", sans-serif;
-  overflow: hidden; /* Prevents scrollbars when button moves */
+  overflow: hidden; /* Stops scrollbars when button moves */
 }
 
 .container {
@@ -19,75 +19,64 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  width: 100%;
-  padding: 20px;
-}
-
-.question-container {
-  display: block;
+  width: 90%; /* Ensures it doesn't touch the screen edges */
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .local-gif, .gif-result {
   width: 100%;
-  max-width: 280px; /* Smaller for mobile */
+  max-width: 250px;
   border-radius: 10px;
   margin-bottom: 1.5rem;
 }
 
+/* MOBILE FONT SIZE */
 .question {
-  font-size: 2.5rem; /* Reduced size for mobile */
+  font-size: 1.8rem; /* Scaled down for mobile */
   margin-bottom: 2rem;
-  line-height: 1.2;
+  line-height: 1.3;
+  word-wrap: break-word;
+}
+
+.result-container h2 {
+  font-size: 1.5rem; /* Scaled down for the long paragraph */
+  line-height: 1.4;
+  padding: 0 10px;
 }
 
 .button-container {
   position: relative;
   width: 100%;
-  height: 100px; /* Space for buttons to move */
+  height: 80px; 
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
 }
 
 .btn {
-  padding: 15px 30px;
+  padding: 12px 25px;
   border: none;
   border-radius: 50px;
   font-size: 18px;
   cursor: pointer;
   background-color: #ff54a4;
   color: white;
-  box-shadow: 0px 4px 15px rgba(255, 107, 129, 0.5);
-  transition: transform 0.2s;
   z-index: 10;
 }
 
-/* We make the No button absolute so it can move anywhere on screen */
 .no-btn {
   position: absolute;
-  transition: left 0.2s ease, top 0.2s ease;
+  transition: 0.1s ease; /* Fast move */
 }
 
 .result-container {
   display: none;
 }
 
-.result-container h2 {
-  font-size: 2.2rem;
-}
-
-/* heart loader adjustments */
-.cssload-main {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-/* Media Query for larger screens */
+/* If screen is bigger (Tablet/Desktop), make text bigger again */
 @media (min-width: 600px) {
-  .question { font-size: 3.5rem; }
-  .local-gif, .gif-result { max-width: 400px; }
+  .question { font-size: 3rem; }
+  .result-container h2 { font-size: 2.5rem; }
+  .local-gif, .gif-result { max-width: 350px; }
 }
